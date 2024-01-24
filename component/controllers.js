@@ -9,7 +9,7 @@ const getAllData = async (req, res, next) => {
     }
     return res.status(200).json({ message: "All data", data: allData });
   } catch (err) {
-    return res.status(500).jason({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
