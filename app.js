@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const routes = require("./component/routes");
 const app = express();
@@ -13,9 +14,7 @@ const Port = process.env.PORT || 4000;
 // Database connection
 // connect() --> it's a async function.
 mongoose
-  .connect(
-    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kc6eqy5.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB database is connected!");
   })
